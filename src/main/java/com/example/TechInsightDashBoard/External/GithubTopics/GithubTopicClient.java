@@ -1,0 +1,15 @@
+package com.example.TechInsightDashBoard.External.GithubTopics;
+
+import com.example.TechInsightDashBoard.DTO.GithubTopicsDTO.GithubSearchForTopicsDTO;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+
+public interface GithubTopicClient {
+
+    @GetExchange("/search/topics")
+    public GithubSearchForTopicsDTO getTopics(@RequestHeader(value = "X-GitHub-Api-Version", defaultValue = "2026-03-10") String apiVersion,
+                                              @RequestParam("q") String query,
+                                              @RequestParam(name = "per_page", defaultValue = "10") int perPage,
+                                              @RequestParam(name = "page", defaultValue = "1") int page);
+}

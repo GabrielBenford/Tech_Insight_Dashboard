@@ -1,6 +1,5 @@
-package com.example.TechInsightDashBoard.External;
+package com.example.TechInsightDashBoard.DTO.GithubRepositoryDTO;
 
-import com.example.TechInsightDashBoard.DTO.GithubRepositoryResponseDTO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;

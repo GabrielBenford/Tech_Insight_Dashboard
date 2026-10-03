@@ -1,9 +1,9 @@
-package com.example.TechInsightDashBoard.External.Adzuna;
+package com.example.TechInsightDashBoard.DTO.AdzunaDTO;
 
 import java.util.List;
 
 public record AdzunaSearchingResponseDTO(
-        int count,
+        Integer count,
         String mean,
         List<AdzunaJobsResponseDTO> results
 ) {

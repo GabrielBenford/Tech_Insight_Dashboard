@@ -1,7 +1,7 @@
 package com.example.TechInsightDashBoard.Controller;
 
-import com.example.TechInsightDashBoard.DTO.TechRequestDTO;
-import com.example.TechInsightDashBoard.DTO.TechResponseDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.TechRequestDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.TechResponseDTO;
 import com.example.TechInsightDashBoard.Service.TechService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.TechInsightDashBoard.DTO;
+package com.example.TechInsightDashBoard.DTO.UserDTO;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

@@ -2,13 +2,12 @@ package com.example.TechInsightDashBoard.Controller;
 
 
 import com.example.TechInsightDashBoard.External.Adzuna.AdzunaClient;
-import com.example.TechInsightDashBoard.External.Adzuna.AdzunaProperties;
-import com.example.TechInsightDashBoard.External.Adzuna.AdzunaSearchingResponseDTO;
+import com.example.TechInsightDashBoard.DTO.AdzunaDTO.AdzunaProperties;
+import com.example.TechInsightDashBoard.DTO.AdzunaDTO.AdzunaSearchingResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/adzuna")
 @RequiredArgsConstructor
-public class AdzunaClientController {
+public class AdzunaController {
 
-    private static final Logger log = LoggerFactory.getLogger(AdzunaClientController.class);
+    private static final Logger log = LoggerFactory.getLogger(AdzunaController.class);
 
     private final AdzunaClient adzunaClient;
     private final AdzunaProperties adzunaProperties;
@@ -31,22 +30,15 @@ public class AdzunaClientController {
             @PathVariable("page") int page,
             @RequestParam(name = "results_per_page", defaultValue = "10") int resultsPerPage,
             @RequestParam("what") String what,
+            @RequestParam("what_and") String whatAnd,
+            @RequestParam("what_exclude") String whatExclude,
             @RequestParam("where") String where,
-            @RequestParam("location0") String location0,
-            @RequestParam(name = "distance", defaultValue = "50") int distance) {
+            @RequestParam(name = "max_days_old", defaultValue = "30") int maxDaysOld) {
 
-        AdzunaSearchingResponseDTO response;
-        try {
-            response = adzunaClient.searchJobs(
+        AdzunaSearchingResponseDTO response= adzunaClient.searchJobs(
                     country, page, resultsPerPage,
                     adzunaProperties.appId(), adzunaProperties.appKey(),
-                    what, where, location0, distance);
-        } catch (WebClientResponseException exception) {
-            log.error("Adzuna respondeu HTTP {}. Corpo da resposta: {}",
-                    exception.getStatusCode(), exception.getResponseBodyAsString());
-            throw exception;
-        }
-
+                    what, whatAnd, whatExclude, where, maxDaysOld);
         return ResponseEntity.ok(response);
     }
 

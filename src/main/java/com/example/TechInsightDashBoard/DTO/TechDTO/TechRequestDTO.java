@@ -1,4 +1,4 @@
-package com.example.TechInsightDashBoard.DTO;
+package com.example.TechInsightDashBoard.DTO.TechDTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

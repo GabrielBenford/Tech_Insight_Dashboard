@@ -1,6 +1,6 @@
 package com.example.TechInsightDashBoard.Mapper;
 
-import com.example.TechInsightDashBoard.DTO.UserResponseDTO;
+import com.example.TechInsightDashBoard.DTO.UserDTO.UserResponseDTO;
 import com.example.TechInsightDashBoard.Entity.UserEntity;
 
 public class UserMapper {

@@ -1,4 +1,4 @@
-package com.example.TechInsightDashBoard.DTO;
+package com.example.TechInsightDashBoard.DTO.GithubRepositoryDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

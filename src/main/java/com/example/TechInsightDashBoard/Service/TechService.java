@@ -1,7 +1,7 @@
 package com.example.TechInsightDashBoard.Service;
 
-import com.example.TechInsightDashBoard.DTO.TechRequestDTO;
-import com.example.TechInsightDashBoard.DTO.TechResponseDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.TechRequestDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.TechResponseDTO;
 import com.example.TechInsightDashBoard.Entity.TechEntity;
 import com.example.TechInsightDashBoard.Entity.UserEntity;
 import com.example.TechInsightDashBoard.Mapper.TechMapper;

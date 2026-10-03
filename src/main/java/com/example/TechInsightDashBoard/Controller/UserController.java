@@ -1,8 +1,8 @@
 package com.example.TechInsightDashBoard.Controller;
 
 
-import com.example.TechInsightDashBoard.DTO.UserRequestDTO;
-import com.example.TechInsightDashBoard.DTO.UserResponseDTO;
+import com.example.TechInsightDashBoard.DTO.UserDTO.UserRequestDTO;
+import com.example.TechInsightDashBoard.DTO.UserDTO.UserResponseDTO;
 import com.example.TechInsightDashBoard.Service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

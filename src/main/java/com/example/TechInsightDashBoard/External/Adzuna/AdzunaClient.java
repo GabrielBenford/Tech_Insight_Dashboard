@@ -1,5 +1,6 @@
 package com.example.TechInsightDashBoard.External.Adzuna;
 
+import com.example.TechInsightDashBoard.DTO.AdzunaDTO.AdzunaSearchingResponseDTO;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.service.annotation.GetExchange;
@@ -14,7 +15,9 @@ public interface AdzunaClient {
             @RequestParam("app_id") String appId,
             @RequestParam("app_key") String appKey,
             @RequestParam("what") String what,
+            @RequestParam("what_and") String whatAnd,
+            @RequestParam("what_exclude") String whatExclude,
             @RequestParam("where") String where,
-            @RequestParam("location0") String location0,
-            @RequestParam("distance") int distance);
+            @RequestParam("max_days_old") int maxDaysOld
+    );
 }

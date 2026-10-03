@@ -25,14 +25,6 @@ public class SecurityFilter extends OncePerRequestFilter {
     private final UserDetailsImplementation userDetailsImplementation;
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        String path = request.getServletPath();
-        return path.equals("/adzuna") || path.startsWith("/adzuna/");
-    }
-
-
-
-    @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         var token = this.recoverToken(request);

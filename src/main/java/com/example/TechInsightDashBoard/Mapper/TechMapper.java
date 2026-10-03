@@ -1,6 +1,6 @@
 package com.example.TechInsightDashBoard.Mapper;
 
-import com.example.TechInsightDashBoard.DTO.TechResponseDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.TechResponseDTO;
 import com.example.TechInsightDashBoard.Entity.TechEntity;
 
 public final class TechMapper {

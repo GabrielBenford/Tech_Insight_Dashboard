@@ -1,4 +1,5 @@
-package com.example.TechInsightDashBoard.External;
+package com.example.TechInsightDashBoard.External.GithubRepositories;
+import com.example.TechInsightDashBoard.External.GithubTopics.GithubTopicClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,8 +21,12 @@ public class GithubClientConfig {
     }
 
     @Bean
-    public GithubClient githubClient(HttpServiceProxyFactory httpServiceProxyFactory) {
-        return httpServiceProxyFactory.createClient(GithubClient.class);
+    public GithubRepositoryClient githubClient(HttpServiceProxyFactory httpServiceProxyFactory) {
+        return httpServiceProxyFactory.createClient(GithubRepositoryClient.class);
     }
 
+    @Bean
+    public GithubTopicClient githubTopicClient(HttpServiceProxyFactory httpServiceProxyFactory) {
+          return httpServiceProxyFactory.createClient(GithubTopicClient.class);
+     }
 }

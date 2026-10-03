@@ -1,4 +1,4 @@
-package com.example.TechInsightDashBoard.External.Adzuna;
+package com.example.TechInsightDashBoard.DTO.AdzunaDTO;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
