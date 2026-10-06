@@ -45,6 +45,10 @@ public class UserEntity implements UserDetails {
      return email;
  }
 
+ public String getDisplayName() {
+     return username;
+ }
+
  @Override
  public boolean isAccountNonExpired() {
      return true;

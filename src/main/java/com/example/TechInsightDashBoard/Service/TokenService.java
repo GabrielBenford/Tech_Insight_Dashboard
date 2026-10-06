@@ -1,5 +1,6 @@
 package com.example.TechInsightDashBoard.Service;
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.TechInsightDashBoard.Entity.UserEntity;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,7 +11,7 @@ import java.time.Instant;
 public class TokenService {
 
 
-    @Value("${SecurityKey}")
+    @Value("${security.jwt.secret}")
     private String securityKey;
 
 
@@ -18,7 +19,6 @@ public class TokenService {
       try{
         Algorithm algorithm = Algorithm.HMAC256(securityKey);
         return JWT.create()
-                .withSubject(userEntity.getUsername())
                 .withSubject(userEntity.getEmail())
                 .withExpiresAt(generateExpirationDate())
                 .withClaim("id", userEntity.getId())
@@ -30,14 +30,9 @@ public class TokenService {
     }
     }
     public String validateToken(String token){
-        try{
-            Algorithm algorithm = Algorithm.HMAC256(securityKey);
-            JWT.require(algorithm).build().verify(token);
-            return "Token is valid";
-        }
-        catch (Exception e){
-            throw new RuntimeException("Invalid token", e);
-        }
+        Algorithm algorithm = Algorithm.HMAC256(securityKey);
+        DecodedJWT decodedJWT = JWT.require(algorithm).build().verify(token);
+        return decodedJWT.getSubject();
     }
 
 

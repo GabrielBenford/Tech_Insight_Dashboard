@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface TechRepository extends JpaRepository<TechEntity, Long> {
     List<TechEntity> findAllByUserIdOrderByTechNameAsc(Long userId);
+    boolean existsByIdAndUserId(Long id, Long userId);
 }

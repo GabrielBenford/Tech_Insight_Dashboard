@@ -1,5 +1,6 @@
 package com.example.TechInsightDashBoard.Config;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.example.TechInsightDashBoard.Service.TokenService;
 import com.example.TechInsightDashBoard.Service.UserDetailsImplementation;
 import jakarta.servlet.FilterChain;
@@ -11,6 +12,7 @@ import org.jspecify.annotations.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -29,12 +31,17 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         var token = this.recoverToken(request);
         if (token != null) {
-            var subject = tokenService.validateToken(token);
-            UserDetails userDetails = userDetailsImplementation.loadUserByUsername(subject);
-
-            var authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            try {
+                var subject = tokenService.validateToken(token);
+                UserDetails userDetails = userDetailsImplementation.loadUserByUsername(subject);
+                var authentication = new UsernamePasswordAuthenticationToken(
+                        userDetails, null, userDetails.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            } catch (JWTVerificationException | UsernameNotFoundException exception) {
+                SecurityContextHolder.clearContext();
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired bearer token");
+                return;
+            }
         }
         filterChain.doFilter(request, response);
     }
@@ -43,7 +50,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         if (token == null || !token.startsWith("Bearer ")) {
             return null;
         }
-        return token.replace("Bearer ", "");
+        return token.substring("Bearer ".length()).trim();
     }
 
 

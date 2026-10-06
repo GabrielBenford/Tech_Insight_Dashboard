@@ -9,6 +9,7 @@ import com.example.TechInsightDashBoard.exception.EmailAlreadyInUseException;
 import com.example.TechInsightDashBoard.exception.ResourceNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
 
     public UserResponseDTO findUserById(Long id) {
@@ -34,7 +36,7 @@ public class UserService {
         UserEntity userEntity = UserEntity.builder()
                 .username(userRequestDTO.name().trim())
                 .email(email)
-                .password(userRequestDTO.password())
+                .password(passwordEncoder.encode(userRequestDTO.password()))
                 .build();
         return UserMapper.toUserResponseDTO(userRepository.save(userEntity));
     }
@@ -51,7 +53,7 @@ public class UserService {
 
         userEntity.setUsername(userRequestDTO.name().trim());
         userEntity.setEmail(email);
-        userEntity.setPassword(userRequestDTO.password());
+        userEntity.setPassword(passwordEncoder.encode(userRequestDTO.password()));
         return UserMapper.toUserResponseDTO(userEntity);
     }
 

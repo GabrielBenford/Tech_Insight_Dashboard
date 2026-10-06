@@ -2,6 +2,8 @@ package com.example.TechInsightDashBoard.Controller;
 
 import com.example.TechInsightDashBoard.DTO.TechDTO.TechRequestDTO;
 import com.example.TechInsightDashBoard.DTO.TechDTO.TechResponseDTO;
+import com.example.TechInsightDashBoard.DTO.TechDTO.SearchHistoryResponseDTO;
+import com.example.TechInsightDashBoard.Service.SearchHistoryService;
 import com.example.TechInsightDashBoard.Service.TechService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,14 @@ import java.util.List;
 public class TechController {
 
     private final TechService techService;
+    private final SearchHistoryService searchHistoryService;
+
+    @GetMapping("/{technologyId}/history")
+    public List<SearchHistoryResponseDTO> findSearchHistory(
+            @PathVariable Long userId,
+            @PathVariable Long technologyId) {
+        return searchHistoryService.findByUserAndTechnology(userId, technologyId);
+    }
 
     @PostMapping
     public ResponseEntity<TechResponseDTO> create(
