@@ -22,7 +22,11 @@ A aplicação utiliza uma arquitetura baseada no ecossistema Spring e integra di
 * Docker
 * Docker Compose
 
-A aplicação também possui integração configurável com a **Adzuna API**, permitindo trabalhar com dados provenientes de plataformas de vagas.
+A aplicação também possui integração configurável com:
+
+**Adzuna API**: permitindo trabalhar com dados provenientes de plataformas de vagas.
+
+**Github API**: permitindo o usuário accessar repositórios e tópicos sobre diversas tecnologias.
 
 ---
 
@@ -189,8 +193,18 @@ As credenciais são configuradas através das variáveis:
 ADZUNA_APP_ID=
 ADZUNA_APP_KEY=
 ```
-
 Dessa forma, as credenciais não precisam ser armazenadas diretamente no código-fonte.
+
+--- 
+
+Outra integração no projeto é a API do **Github**, permitindo o usuário tanto pesquisar os melhores repositórios de uma determinada tecnologia/tema.
+
+<img width="1537" height="838" alt="Captura de tela de 2026-10-07 21-35-18" src="https://github.com/user-attachments/assets/e2e1dbdf-1aff-4e0e-a62a-c4a7db71114b" />
+
+Quanto pesquisar sobre tópicos de uma determinada linguagem
+
+<img width="1537" height="838" alt="Captura de tela de 2026-10-07 21-32-20" src="https://github.com/user-attachments/assets/abd2d1f1-08b3-4b3e-8cf7-72f6d1b92c32" />
+
 
 ---
 
