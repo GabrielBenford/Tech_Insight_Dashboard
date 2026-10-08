@@ -2,7 +2,7 @@
 
 Backend REST desenvolvido em **Java e Spring Boot** para centralizar dados e insights relacionados ao mercado de tecnologia.
 
-O projeto foi construído com foco em **desenvolvimento Backend**, integração com APIs externas, persistência de dados, autenticação, segurança, migrações de banco de dados, containerização e preparação para recursos de inteligência e busca baseada em dados.
+O projeto foi construído com foco em **desenvolvimento Backend**, integração com APIs externas, persistência de dados, autenticação, segurança, migrações de banco de dados, containerização e preparação de busca baseada em dados.
 
 ---
 
@@ -19,8 +19,6 @@ A aplicação utiliza uma arquitetura baseada no ecossistema Spring e integra di
 * JWT
 * Migrações de banco de dados
 * Integração com APIs externas
-* Redis
-* Spring AI
 * OpenFeign
 * Docker
 * Docker Compose
@@ -38,10 +36,8 @@ O projeto foi desenvolvido com os seguintes objetivos:
 * Desenvolver uma API REST estruturada;
 * Implementar autenticação e segurança utilizando Spring Security e JWT;
 * Trabalhar com persistência utilizando Spring Data JPA;
-* Gerenciar evolução do banco utilizando Flyway;
 * Integrar serviços externos utilizando OpenFeign;
 * Trabalhar com PostgreSQL;
-* Explorar utilização de Redis como infraestrutura para recursos de IA/busca;
 * Containerizar a aplicação utilizando Docker;
 * Utilizar Docker Compose para orquestrar aplicação e banco de dados;
 * Desenvolver uma base preparada para análise e geração de insights sobre dados de tecnologia.
@@ -429,8 +425,6 @@ O `compose.yaml` utiliza essas variáveis para configurar tanto o banco quanto a
 
 # 📁 Estrutura do projeto
 
-A estrutura principal do repositório atualmente contém:
-
 ```text
 Tech_Insight_Dashboard/
 │
@@ -450,9 +444,6 @@ Tech_Insight_Dashboard/
 ├── mvnw.cmd
 └── pom.xml
 ```
-
-O código da aplicação fica concentrado no diretório `src`, enquanto Docker, Compose e Maven são utilizados para infraestrutura e gerenciamento do projeto.
-
 ---
 
 # 👨‍💻 Autor
