@@ -17,7 +17,6 @@ A aplicação utiliza uma arquitetura baseada no ecossistema Spring e integra di
 * PostgreSQL
 * Autenticação e segurança
 * JWT
-* Migrações de banco de dados
 * Integração com APIs externas
 * OpenFeign
 * Docker
