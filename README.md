@@ -2,7 +2,7 @@
 
 Backend REST desenvolvido em **Java e Spring Boot** para centralizar dados e insights relacionados ao mercado de tecnologia.
 
-O projeto foi construído com foco em **desenvolvimento Backend**, integração com APIs externas, persistência de dados, autenticação, segurança, migrações de banco de dados, containerização e preparação de busca baseada em dados.
+O projeto foi construído com foco em **desenvolvimento Backend**, integração com APIs externas, persistência de dados, autenticação, segurança, containerização e preparação de busca baseada em dados.
 
 ---
 
